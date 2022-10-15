@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    background-color: #F6F8F3;
+}
+
+
+section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    position: relative;
+    max-width: 20px;
+}
+
+header ul {
+    position: relative;
+    display: flex;
+}
+
+header ul li {
+    list-style: none;
+}
+
+header ul li a {
+    display: inline-block;
+    color: #333;
+    font-weight: bolder;
+    margin-left: 40px;
+    text-decoration: none;
+}
+
+header ul li a:hover {
+    color: #CEDDC8;
+    transition: 0.5s ease;
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content .textBox {
+    position: relative;
+    max-width: 600px;
+}
+
+.content .textBox h2 {
+    color: #333;
+    font-size: 4em;
+    line-height: 1.4em;
+    font-weight: 550;
+}
+
+.content .textBox h2 span {
+    color: #CEDDC8;
+    font-weight: bolder;
+}
+
+.content .textBox a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background-color: #CEDDC8;
+    color: black;
+    font-weight: bolder;
+    border-radius: 40px;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.imgBox .activity-image {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50px;
+    margin-top: 50px;
+    max-width: 750px;
+    max-height: 865px;
+    width: auto;
+    height: auto;
+}
+
+.social-media:hover {
+    transform: translateX(-20px);
+    transition: 0.5s ease;
+}
+
+

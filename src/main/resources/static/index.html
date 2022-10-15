@@ -1,23 +1,42 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Homepage</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="image/hk-logo.png">
+    <script rel="script" src="js/landingpage.js"></script>
+    <title>Activity finder by Hassan K</title>
 </head>
+
 <body>
 
-<div class="container">
-  <h1 class="title">Enter your name</h1>
-  <form action="/hello" method="GET" id="nameForm">
-    <div class="name-container">
-      <label for="nameField"></label>
-      <input class="inputbox" name="name" id="nameField">
-      <button class="greeting">Greet me!</button>
+<section>
+    <header>
+        <a href="#" class="logo"><img src="image/hk-logo.png" alt="hklogo"></a>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </header>
+    <div class="content">
+        <div class="textBox">
+            <h2>It has never been easier to find<span> something to do</span></h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <a href="#">Get started!</a>
+        </div>
+        <div class="imgBox">
+            <img class="activity-image" src="image/landingpage/image1.png" alt="activityimage">
+        </div>
     </div>
-  </form>
-</div>
-
+    <ul class="social-media">
+        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+    </ul>
+</section>
 
 </body>
+
 </html>
