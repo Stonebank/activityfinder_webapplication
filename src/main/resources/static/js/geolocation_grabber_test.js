@@ -1,3 +1,6 @@
 navigator.geolocation.getCurrentPosition(pos => {
-    console.log(pos.coords.latitude + " " + pos.coords.longitude)
+    const lat = pos.coords.latitude;
+    const lon = pos.coords.longitude;
+    const accuracy = pos.coords.accuracy;
+    console.log(lat + " " + lon + " " + accuracy);
 })
