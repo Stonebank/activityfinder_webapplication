@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title th:text="${name} + ' user portal'"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/style/hello.css}" rel="stylesheet">
+</head>
+<body>
+<h1 th:text="'Hello ' + ${name} + '!'" />
+</body>
+</html>
