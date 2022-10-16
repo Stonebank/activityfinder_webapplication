@@ -1,11 +1,190 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-* {
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    background-color: #F6F8F3;
 }
 
-body {
-    font-family: "Poppins, sans-serif", serif;
+
+.navbar {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    position: relative;
+    max-width: 20px;
+}
+
+header ul {
+    position: relative;
+    display: flex;
+}
+
+header ul li {
+    list-style: none;
+}
+
+header ul li a {
+    display: inline-block;
+    color: #333;
+    font-weight: bolder;
+    margin-left: 40px;
+    text-decoration: none;
+}
+
+header ul li a {
+    color: black;
+    transition: 0.5s ease;
+}
+
+header ul li a:hover {
+    color: #CEDDC8;
+    transition: 0.5s ease;
+}
+
+section .contact-me {
+    margin-top: 80px;
+    padding: 40px 15%;
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    align-items: center;
+    grid-gap: 6rem;
+}
+
+.profile-picture img {
+    max-width: 100%;
+    border-radius: 60px;
+    width: 720px;
+    height: auto;
+}
+
+.contact-form h1 {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+.contact-form span {
+    color: #CEDDC8;
+    font-weight: bolder;
+}
+
+.contact-form p {
+    letter-spacing: 1px;
+    line-height: 26px;
+    font-size: 1.1rem;
+    margin-bottom: 3.8rem;
+}
+
+.contact-form form {
+    position: relative;
+}
+
+.contact-form form input, form textarea {
+    width: 100%;
+    padding: 17px;
+    border: none;
+    outline: none;
+    background: #CEDDC8;
+    color: black;
+    margin-bottom: 0.7rem;
+    border-radius: 10px;
+    font-weight: bolder;
+}
+
+.contact-form textarea {
+    color: black;
+    resize: none;
+    height: 200px;
+}
+
+.contact-form form .btn {
+    display: inline-block;
+    background: #CEDDC8;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 10px;
+    transition: ease .20s;
+    cursor: pointer;
+}
+
+.contact-form .btn:hover {
+    background: #CEDDC8;
+    transform: scale(1.1);
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    font-size: 30px;
+    list-style: none;
+    transition: 0.5s ease;
+}
+
+.social-media:hover {
+    transition: 0.5s ease;
+    scale: 1.1;
+}
+
+@media (max-width: 1570px) {
+    section .contact-me {
+        padding: 80px 3%;
+        transition: .2s;
+    }
+    .contact-form h1 {
+        font-size: 60px;
+    }
+    .contact-form p {
+        margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 1090px) {
+    .contact-me {
+        grid-gap: 2rem;
+        transition: .3s;
+    }
+}
+
+@media (max-width: 1000px) {
+    .contact-me {
+        grid-template-columns: 1fr;
+    }
+    .contact-form {
+        order: 2;
+    }
+    .profile-picture img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        margin-bottom: 30px;
+    }
 }

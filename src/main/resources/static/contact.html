@@ -2,21 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="image/hk-logo.png">
     <link rel="stylesheet" href="style/contact.css">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <title>Activity finder by Hassan K</title>
 </head>
 
 <body>
 
-  <div class="container">
-    <h1>Hassan K</h1>
-    <h2>Software engineer student</h2>
-    <div class="profile-picture">
-      <img src="image/contact/placeholder.jpg" alt="photo of Hassan K">
-    </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <a href="#" class="btn">Contact me</a>
-  </div>
-
+<section class="navbar">
+    <header>
+        <a href="#" class="logo"><img src="image/hk-logo.png" alt="hklogo"></a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </header>
+    <section class="contact-me">
+        <div class="contact-form">
+            <h1>Stay in <span>touch</span></h1>
+            <p>Simone tissekone Simone tissekone Simone tissekone Simone tissekone Simone tissekone Simone tissekone</p>
+            <form method="post">
+                <input id="name" placeholder="Your name" required>
+                <input id="mail" type="email" name="email" placeholder="Your e-mail" required>
+                <input id="topic" placeholder="Topic" required>
+                <textarea name="email-content" id="body" cols="30" rows="30" placeholder="Message" required></textarea>
+                <input type="submit" value="contact me" id="submit-button" class="btn">
+            </form>
+        </div>
+        <div class="profile-picture">
+            <img src="image/contact/placeholder.jpg" alt="profile-picture">
+            <ul class="social-media">
+                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+            </ul>
+        </div>
+    </section>
+</section>
 </body>
+<script type="text/javascript">
+    const button = document.getElementById("submit-button");
+    button.addEventListener("click", function(e) {
+        e.preventDefault();
+        const name = document.getElementById("name").value;
+        const mail = document.getElementById("mail").value;
+        const topic = document.getElementById("topic").value;
+        const body = document.getElementById("body").value;
+        console.log(name + " " + mail + " " + topic + " " + body);
+        Email.send({
+            Host: "smtp.gmail.com",
+            Username: "activityfinderhk@gmail.com",
+            Password: "kkvohkrgtulgiasf",
+            To: "hassan_99@live.dk",
+            From: mail,
+            Subject: topic,
+            Body: body,
+        }).then(function() {
+            alert("Mail was sent successfully");
+        })
+    })
+</script>
 </html>
