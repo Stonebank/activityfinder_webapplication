@@ -53,6 +53,11 @@ header ul li a {
     text-decoration: none;
 }
 
+header ul li a {
+    color: black;
+    transition: 0.5s ease;
+}
+
 header ul li a:hover {
     color: #CEDDC8;
     transition: 0.5s ease;
@@ -104,6 +109,12 @@ header ul li a:hover {
     max-height: 865px;
     width: auto;
     height: auto;
+}
+
+.social-media {
+    list-style: none;
+    transform: translateX(20px);
+    transition: 0.5s ease;
 }
 
 .social-media:hover {
