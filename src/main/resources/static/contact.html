@@ -23,7 +23,7 @@
     <section class="contact-me">
         <div class="contact-form">
             <h1>Stay in <span>touch</span></h1>
-            <p>Simone tissekone Simone tissekone Simone tissekone Simone tissekone Simone tissekone Simone tissekone</p>
+            <p>Do you have feedback, questions or are you interested in hiring me? Get in touch with me!</p>
             <form method="post">
                 <input id="name" placeholder="Your name" required>
                 <input id="mail" type="email" name="email" placeholder="Your e-mail" required>
@@ -45,24 +45,17 @@
 </body>
 <script type="text/javascript">
     const button = document.getElementById("submit-button");
-    button.addEventListener("click", function(e) {
-        e.preventDefault();
-        const name = document.getElementById("name").value;
-        const mail = document.getElementById("mail").value;
-        const topic = document.getElementById("topic").value;
-        const body = document.getElementById("body").value;
-        console.log(name + " " + mail + " " + topic + " " + body);
+    button.addEventListener("click", function() {
         Email.send({
-            Host: "smtp.gmail.com",
-            Username: "activityfinderhk@gmail.com",
-            Password: "kkvohkrgtulgiasf",
-            To: "hassan_99@live.dk",
-            From: mail,
-            Subject: topic,
-            Body: body,
-        }).then(function() {
-            alert("Mail was sent successfully");
-        })
+            secureToken: "5566dd2a-f2f3-4232-bff0-f6fe1dc0fba8",
+            Host: "smtp.elasticemail.com",
+            To : 'activityfinderhk@gmail.com',
+            From : "activityfinderhk@gmail.com", // put a real email address that is verified
+            Subject : "test",
+            Body : "test"
+        }).then(
+            console.log("mail sent")
+        );
     })
 </script>
 </html>
