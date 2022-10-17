@@ -77,6 +77,14 @@ header ul li a:hover {
     max-width: 600px;
 }
 
+.content .textBox a {
+    transition: 0.5s;
+}
+
+.content .textBox a:hover {
+    transform: scale(1.1);
+}
+
 .content .textBox h2 {
     color: #333;
     font-size: 4em;
