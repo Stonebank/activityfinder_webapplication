@@ -76,6 +76,7 @@ section .contact-me {
 }
 
 .profile-picture img {
+    margin-top: 200px;
     max-width: 100%;
     border-radius: 60px;
     width: 720px;
