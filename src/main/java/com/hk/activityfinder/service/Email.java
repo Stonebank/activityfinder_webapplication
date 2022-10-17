@@ -39,6 +39,7 @@ public class Email implements MailService {
                 message.setSubject(topic);
                 message.setContent(content, "text/html");
                 Transport.send(message);
+                logger.info("Email was sent with the topic " + topic);
             } catch (MessagingException e) {
                 logger.error("ERROR! Mail was not sent.", e);
             }
