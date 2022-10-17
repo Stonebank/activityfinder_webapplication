@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" th:href="@{/style/index.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="image/hk-logo.png">
-    <script rel="script" src="js/landingpage.js"></script>
+    <link rel="icon" type="image/png" th:href="@{/image/hk-logo.png}">
     <title>Activity finder by Hassan K</title>
 </head>
 
@@ -13,11 +12,11 @@
 
 <section>
     <header>
-        <a href="#" class="logo"><img src="image/hk-logo.png" alt="hklogo"></a>
+        <a href="#" class="logo"><img th:src="@{/image/hk-logo.png}" alt="hklogo" src=""></a>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a th:href="@{/homepage}">Home</a></li>
+            <li><a th:href="@{/about}">About</a></li>
+            <li><a th:href="@{/contact}">Contact</a></li>
         </ul>
     </header>
     <div class="content">
@@ -27,7 +26,7 @@
             <a href="#">Get started!</a>
         </div>
         <div class="imgBox">
-            <img class="activity-image" src="image/landingpage/image1.png" alt="activityimage">
+            <img class="activity-image" th:src="@{/image/landingpage/image1.png}" alt="activityimage">
         </div>
     </div>
     <ul class="social-media">
