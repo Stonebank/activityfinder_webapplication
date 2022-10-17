@@ -5,6 +5,7 @@
     <link rel="stylesheet" th:href="@{/style/index.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/png" th:href="@{/image/hk-logo.png}">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
     <title>Activity finder by Hassan K</title>
 </head>
 
@@ -23,7 +24,7 @@
         <div class="textBox">
             <h2>It has never been easier to find<span> something to do</span></h2>
             <p>With just a tap, it will show you nearby activities like sightseeing, exploring and experiencing.</p>
-            <a href="#">Get started!</a>
+            <a href="homepage">Get started!</a>
         </div>
         <div class="imgBox">
             <img class="activity-image" th:src="@{/image/landingpage/image1.png}" alt="activityimage">
@@ -37,5 +38,27 @@
 </section>
 
 </body>
+
+<script>
+    navigator.geolocation.getCurrentPosition(pos => {
+        const coords = pos.coords.latitude + " " + pos.coords.longitude;
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "/homepage/coords",
+            data: coords,
+            timeout: 100000,
+            success: function(data) {
+                console.log("successful!");
+            },
+            error: function(e) {
+                console.log("Could not send data: " + coords);
+            },
+            done: function(e) {
+                console.log("done!");
+            }
+        })
+    });
+</script>
 
 </html>
