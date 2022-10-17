@@ -1,5 +1,6 @@
 package com.hk.activityfinder.controller;
 
+import com.hk.activityfinder.mail.Email;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.servlet.error.ErrorController;
@@ -11,6 +12,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
+
 
 @Controller
 public class PageErrorController implements ErrorController {
@@ -36,12 +38,14 @@ public class PageErrorController implements ErrorController {
         var status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
         if (status != null) {
             var responseCode = Integer.parseInt(status.toString());
+            Email.mail("A user found a " + responseCode + " page", "placeholder_text");
             logger.error("ERROR! A user went too far - response code: " + responseCode + " " + getClientIP());
             if (responseCode == HttpStatus.NOT_FOUND.value())
                 return "error-404";
             if (responseCode == HttpStatus.INTERNAL_SERVER_ERROR.value())
                 return "error-500";
         }
+        Email.mail("A user went too far: Response code not given", "placeholder_text");
         logger.error("Error detected - normal request: /error");
         return "error";
     }
