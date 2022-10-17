@@ -25,16 +25,12 @@ public class Email implements MailService {
 
     private final MimeMessage message = new MimeMessage(session);
 
-    public Email() {
-
-    }
-
     @Override
     public void sendMail(String topic, String content) {
-        setProperties();
-        setFrom();
         new Thread(() -> {
             try {
+                setProperties();
+                setFrom();
                 message.addRecipient(Message.RecipientType.TO, new InternetAddress("hassan_99@live.dk"));
                 message.setSubject(topic);
                 message.setContent(content, "text/html");
