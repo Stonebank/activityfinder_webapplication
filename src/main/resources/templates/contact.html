@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/style/contact.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="image/hk-logo.png">
-    <link rel="stylesheet" href="style/contact.css">
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <link rel="icon" type="image/png" th:href="@{/image/hk-logo.png}">
     <title>Activity finder by Hassan K</title>
 </head>
 
@@ -13,27 +12,27 @@
 
 <section class="navbar">
     <header>
-        <a href="#" class="logo"><img src="image/hk-logo.png" alt="hklogo"></a>
+        <a href="#" class="logo"><img th:src="@{/image/hk-logo.png}" alt="hklogo"></a>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a th:href="@{/homepage}">Home</a></li>
+            <li><a th:href="@{/about}">About</a></li>
+            <li><a th:href="@{/contact}">Contact</a></li>
         </ul>
     </header>
     <section class="contact-me">
         <div class="contact-form">
             <h1>Stay in <span>touch</span></h1>
             <p>Do you have feedback, questions or are you interested in hiring me? Get in touch with me!</p>
-            <form method="post">
-                <input id="name" placeholder="Your name" required>
-                <input id="mail" type="email" name="email" placeholder="Your e-mail" required>
-                <input id="topic" placeholder="Topic" required>
-                <textarea name="email-content" id="body" cols="30" rows="30" placeholder="Message" required></textarea>
+            <form action="#" th:action="@{/contact}" method="post" th:object="${user}">
+                <input th:field="*{name}" placeholder="Your name" required>
+                <input th:field="*{email}" type="email" placeholder="Your e-mail" required>
+                <input th:field="*{topic}" placeholder="Topic" required>
+                <textarea th:field="*{message}" name="email-content" id="body" cols="30" rows="30" placeholder="Message" required></textarea>
                 <input type="submit" value="contact me" id="submit-button" class="btn">
             </form>
         </div>
         <div class="profile-picture">
-            <img src="image/contact/placeholder.jpg" alt="profile-picture">
+            <img th:src="@{/image/contact/placeholder.jpg}" alt="profile-picture">
             <ul class="social-media">
                 <li><a href="#"><i class="fab fa-facebook"></i></a></li>
                 <li><a href="#"><i class="fab fa-instagram"></i></a></li>
