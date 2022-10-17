@@ -1,6 +1,7 @@
 package com.hk.activityfinder.service;
 
 import com.hk.activityfinder.interfaces.MailService;
+import com.hk.activityfinder.utility.BackgroundThread;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -9,12 +10,12 @@ import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
+import java.util.concurrent.*;
 
 @Service
 public class Email implements MailService {
 
     private final Logger logger = LoggerFactory.getLogger(Email.class);
-
     private final Properties properties = System.getProperties();
     private final Session session = Session.getInstance(properties, new Authenticator() {
         @Override
@@ -27,7 +28,7 @@ public class Email implements MailService {
 
     @Override
     public void sendMail(String topic, String content) {
-        new Thread(() -> {
+        BackgroundThread.EMAIL_EXECUTOR.execute(() -> {
             try {
                 setProperties();
                 setFrom();
@@ -39,7 +40,7 @@ public class Email implements MailService {
             } catch (MessagingException e) {
                 logger.error("ERROR! Mail was not sent.", e);
             }
-        }).start();
+        });
     }
 
     private void setProperties() {
