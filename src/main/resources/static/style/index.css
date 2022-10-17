@@ -72,6 +72,7 @@ header ul li a:hover {
 }
 
 .content .textBox {
+    margin-left: 20px;
     position: relative;
     max-width: 600px;
 }
@@ -121,5 +122,4 @@ header ul li a:hover {
     transform: translateX(-20px);
     transition: 0.5s ease;
 }
-
 
