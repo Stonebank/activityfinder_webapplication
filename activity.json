@@ -30,7 +30,7 @@
     ]
   },
   {
-    "name": "Københavnzoo",
+    "name": "København zoo",
     "city": "Frederiksberg",
     "image_path": "/image/activity/Københavnzoo.png",
     "points": 0,
@@ -45,7 +45,7 @@
     ]
   },
   {
-    "name": "DenBlåplanet",
+    "name": "Den Blå planet",
     "city": "Amager",
     "image_path": "/image/activity/DenBlåplanet.png",
     "points": 0,
@@ -60,7 +60,7 @@
     ]
   },
   {
-    "name": "FrederiksborgSlot",
+    "name": "Frederiksborg Slot",
     "city": "Hillerød",
     "image_path": "/image/activity/FrederiksborgSlot.png",
     "points": 0,
@@ -75,7 +75,7 @@
     ]
   },
   {
-    "name": "Møntsklint",
+    "name": "Mønts klint",
     "city": "Møn",
     "image_path": "/image/activity/Møntsklint.png",
     "points": 0,
@@ -90,7 +90,7 @@
     ]
   },
   {
-    "name": "Thynationalpark",
+    "name": "Thy national park",
     "city": "Thy",
     "image_path": "/image/activity/Thynationalpark.png",
     "points": 0,
@@ -120,7 +120,7 @@
     ]
   },
   {
-    "name": "Bonbonland",
+    "name": "Bonbon land",
     "city": "Næstved",
     "image_path": "/image/activity/Bonbonland.png",
     "points": 0,
@@ -135,7 +135,7 @@
     ]
   },
   {
-    "name": "Kronborgslot",
+    "name": "Kronborg slot",
     "city": "Helsingør",
     "image_path": "/image/activity/Kronborgslot.png",
     "points": 0,
