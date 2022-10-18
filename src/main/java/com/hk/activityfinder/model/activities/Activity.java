@@ -17,9 +17,13 @@ public class Activity {
     private String city;
     private String image_path;
     private int points;
-    private double distance;
+    private String distance;
     private Coordinate coordinate;
     private WeatherType[] weatherTypes;
+
+    public String getDistance() {
+        return String.format("%s km", Math.round(Double.parseDouble(this.distance)));
+    }
 
     @Override
     public String toString() {
