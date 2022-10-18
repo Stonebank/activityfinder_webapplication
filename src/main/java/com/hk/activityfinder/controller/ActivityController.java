@@ -28,13 +28,15 @@ public class ActivityController {
     public String getCoords(@RequestBody String coords) {
         lat = Double.parseDouble(coords.split(" ")[0]);
         lon = Double.parseDouble(coords.split(" ")[1]);
-        logger.info("COORDINATES RECEIVED FROM JAVASCRIPT CLIENT: " + lat + " " + lon);
+        logger.info("Javascript coordinates=[" + lat + "," + lon + "]");
         return "getstarted";
     }
 
     @GetMapping("/get-started")
     public String showGetStarted(Model model, @ModelAttribute("user") UserLocation userlocation) {
         userlocation.setCoordinate(new Coordinate(lat, lon));
+        userlocation.fetchWeatherData();
+        userlocation.parseWeatherData();
         model.addAttribute(userlocation);
         model.addAttribute("allActivities", activityService.getAllActivities());
         return "getstarted";
