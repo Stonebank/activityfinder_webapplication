@@ -23,7 +23,7 @@
           <div class="activity-info">
             <span class="name" th:text="${activity.getName()}"></span>
             <span class="address" th:text="${activity.getCity()}"></span>
-            <span class="distance" th:object="${userLocation}" th:action="${activity.setDistance(userLocation.getDistance(activity.getCoordinate()))}" th:text="${activity.getDistance()} + km"></span>
+            <span class="distance" th:object="${userLocation}" th:action="${activity.setDistance(userLocation.getDistance(activity.getCoordinate()))}" th:text="${activity.getDistance()}"></span>
           </div>
           <div class="rating">
             <i class="fas fa-star"></i>
