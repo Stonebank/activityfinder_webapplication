@@ -33,7 +33,7 @@ public class JSONConverter {
         if (!file.exists())
             throw new FileNotFoundException(file.getPath() + " was not found");
         if (new File(destination).delete())
-            System.out.println("Deleted " + destination);
+            logger.info("Deleted " + destination + "...");
     }
 
     public void convert() throws IOException {
@@ -62,7 +62,7 @@ public class JSONConverter {
 
             activity.setName(name);
             activity.setCity(city);
-            activity.setImage_path("/image/activity/" + name.replaceAll("\\s", "").toLowerCase(Locale.ROOT) + ".png");
+            activity.setImage_path("/image/activity/" + name.replaceAll("\\s", "") + ".png");
             activity.setCoordinate(new Coordinate(latitude, longitude));
             activity.setWeatherTypes(new WeatherType[] { bestWeather, worstWeather });
 
