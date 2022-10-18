@@ -1,6 +1,6 @@
 package com.hk.activityfinder.controller;
 
-import com.hk.activityfinder.model.User;
+import com.hk.activityfinder.model.contact.User;
 import com.hk.activityfinder.service.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
