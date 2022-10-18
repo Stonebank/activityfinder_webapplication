@@ -26,6 +26,7 @@ public class ActivityLoader {
             public void load(JsonObject reader, Gson gson) {
                 var name = reader.get("name").getAsString();
                 var city = reader.get("city").getAsString();
+                var image_path = reader.get("image_path").getAsString();
 
                 var latitude = reader.get("coordinate").getAsJsonObject().get("latitude").getAsDouble();
                 var longitude = reader.get("coordinate").getAsJsonObject().get("longitude").getAsDouble();
@@ -37,6 +38,7 @@ public class ActivityLoader {
 
                 activity.setName(name);
                 activity.setCity(city);
+                activity.setImage_path(image_path);
                 activity.setDistance(0);
                 activity.setCoordinate(new Coordinate(latitude, longitude));
                 activity.setWeatherTypes(new WeatherType[] { bestWeather, worstWeather });
