@@ -1,5 +1,6 @@
 package com.hk.activityfinder;
 
+import com.hk.activityfinder.utility.loader.ActivityLoader;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,6 +9,7 @@ public class Launch {
 
     public static void main(String[] args) {
         SpringApplication.run(Launch.class, args);
+        new ActivityLoader().init();
     }
 
 }
