@@ -15,6 +15,7 @@ public class Activity {
 
     private String name;
     private String city;
+    private String image_path;
 
     private int points;
 
@@ -28,7 +29,8 @@ public class Activity {
     public String toString() {
         return "Activity{" +
                 "name='" + name + '\'' +
-                ", address='" + city + '\'' +
+                ", city='" + city + '\'' +
+                ", image_path='" + image_path + '\'' +
                 ", points=" + points +
                 ", distance=" + distance +
                 ", coordinate=" + coordinate +
