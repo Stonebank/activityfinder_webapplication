@@ -17,7 +17,7 @@
       <div th:each="activity:${allActivities}" class="swiper-slide card">
         <div class="card-content">
           <div class="image">
-            <img th:src="@{/image/placeholder.png}" alt="image" src="">
+            <img th:src="${activity.getImage_path()}" alt="image" src="">
           </div>
           <div class="activity-info">
             <span class="name" th:text="${activity.getName()}"></span>
