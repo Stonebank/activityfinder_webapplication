@@ -15,11 +15,6 @@ public class MainController {
     @Autowired
     private Email email;
 
-    @GetMapping("/about")
-    public String showAboutPage() {
-        return "about";
-    }
-
     @GetMapping("/homepage")
     public String showHomePage() {
         return "index";
