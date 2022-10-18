@@ -61,6 +61,11 @@ public class UserLocation {
     }
 
     public void parseWeatherData() {
+        if (coordinate.getLongitude() == 0 && coordinate.getLatitude() == 0) {
+            logger.error("Coordinates from client is not ready");
+            return;
+        }
+        fetchWeatherData();
         current_temperature = (BigDecimal) jsonObject.getJSONObject("main").get("temp");
         maximum_temperature = (BigDecimal) jsonObject.getJSONObject("main").get("temp_max");
         minimum_temperature = (BigDecimal) jsonObject.getJSONObject("main").get("temp_min");
@@ -89,7 +94,7 @@ public class UserLocation {
         switch (randomizer) {
             case 0 -> message = String.format("Weather currently feels like %s°C", Math.round(feels_like.doubleValue()));
             case 1 -> message = String.format("The weather will reach a highest temperature of %s°C and lowest of %s°C ", Math.round(maximum_temperature.doubleValue()), Math.round(minimum_temperature.doubleValue()));
-            default -> message = "Error: Weather data and location is inaccurate. Please reload page";
+            default -> message = "Error: Weather data and location is inaccurate. Please reload page and make sure you have given location access.";
         }
         return message;
     }
