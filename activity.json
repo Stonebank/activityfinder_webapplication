@@ -1,0 +1,132 @@
+[
+    {
+      "name": "Goboat",
+      "city": "København",
+      "coordinate": {
+        "latitude": 55.66924392080051,
+        "longitude": 12.578563056059016
+      },
+      "weatherTypes": [
+        "SUNNY",
+        "RAIN"
+      ],
+      "points": 0
+    },
+    {
+      "name": "Svane cykler",
+      "city": "København",
+      "coordinate": {
+        "latitude": 55.68682485679956,
+        "longitude": 12.561920127248799
+      },
+      "weatherTypes": [
+        "SUNNY",
+        "RAIN"
+      ],
+      "points": 0
+    },
+    {
+      "name": "København Zoo",
+      "city": "Frederiksberg",
+      "coordinate": {
+        "latitude": 55.67311570731192,
+        "longitude": 12.519043013566618
+      },
+      "weatherTypes": [
+        "SUNNY",
+        "CLOUD"
+      ],
+      "points": 0
+    },
+    {
+      "name": "Den Blå planet",
+      "city": "Amager",
+      "coordinate": {
+        "latitude": 55.63818999707165,
+        "longitude": 12.655983665852741
+      },
+      "weatherTypes": [
+        "NONE",
+        "NONE"
+      ],
+      "points": 0
+    },
+    {
+      "name": "Fredriksborg slot",
+      "city": "Hillerød",
+      "coordinate": {
+        "latitude": 55.93497665298331,
+        "longitude": 12.301186467891375
+      },
+      "weatherTypes": [
+        "SUNNY",
+        "NONE"
+      ],
+      "points": 0
+    },
+    {
+      "name": "Mønts klint",
+      "city": "Møn",
+      "coordinate": {
+        "latitude": 54.98458760495932,
+        "longitude": 12.542480065047174
+      },
+      "weatherTypes": [
+        "SUNNY",
+        "STORM"
+      ],
+      "points": 0
+    },
+    {
+      "name": "Thy national park",
+      "city": "Thy",
+      "coordinate": {
+        "latitude": 56.95855150409616,
+        "longitude": 8.368504394590445
+      },
+      "weatherTypes": [
+        "SUNNY",
+        "RAIN"
+      ],
+      "points": 0
+    },
+    {
+      "name": "Lego land",
+      "city": "Billund",
+      "coordinate": {
+        "latitude": 55.73508091525627,
+        "longitude": 9.124506784342076
+      },
+      "weatherTypes": [
+        "SUNNY",
+        "RAIN"
+      ],
+      "points": 0
+    },
+    {
+      "name": "Bonbon-land",
+      "city": "Næstved",
+      "coordinate": {
+        "latitude": 55.260896305927005,
+        "longitude": 11.863348303742372
+      },
+      "weatherTypes": [
+        "SUNNY",
+        "RAIN"
+      ],
+      "points": 0
+    },
+    {
+      "name": "Kronborg slot",
+      "city": "Helsingør",
+      "coordinate": {
+        "latitude": 56.039203122712394,
+        "longitude": 12.622153049790171
+      },
+      "weatherTypes": [
+        "SUNNY",
+        "RAIN"
+      ],
+      "points": 0
+    }
+  ]
