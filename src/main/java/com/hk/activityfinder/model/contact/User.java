@@ -1,4 +1,4 @@
-package com.hk.activityfinder.model;
+package com.hk.activityfinder.model.contact;
 
 import lombok.Getter;
 import lombok.Setter;
