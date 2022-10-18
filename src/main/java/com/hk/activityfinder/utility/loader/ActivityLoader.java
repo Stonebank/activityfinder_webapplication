@@ -40,6 +40,7 @@ public class ActivityLoader {
                 activity.setCity(city);
                 activity.setImage_path(image_path);
                 activity.setDistance("0");
+                activity.setRatings(new int[((int) (Math.random() * 4) + 1)]);
                 activity.setCoordinate(new Coordinate(latitude, longitude));
                 activity.setWeatherTypes(new WeatherType[] { bestWeather, worstWeather });
 

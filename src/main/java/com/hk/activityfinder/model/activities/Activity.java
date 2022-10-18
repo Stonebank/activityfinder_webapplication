@@ -21,6 +21,8 @@ public class Activity {
     private Coordinate coordinate;
     private WeatherType[] weatherTypes;
 
+    private int[] ratings;
+
     public String getDistance() {
         return String.format("%s km", Math.round(Double.parseDouble(this.distance)));
     }

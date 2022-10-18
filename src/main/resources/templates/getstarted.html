@@ -35,11 +35,7 @@
             <span class="distance" th:object="${userLocation}" th:action="${activity.setDistance(userLocation.getDistance(activity.getCoordinate()))}" th:text="${activity.getDistance()}"></span>
           </div>
           <div class="rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
+            <i th:each="star : ${activity.getRatings()}" class="fas fa-star"></i>
           </div>
           <div class="like">
             <i class="fa-regular fa-heart"></i>
@@ -103,7 +99,7 @@
     },
   });
 </script>
-
+</section>
 </body>
 
 </html>
