@@ -22,6 +22,7 @@
     </ul>
   </header>
 <section>
+  <h2 th:text="${userLocation?.toString()}"></h2>
   <div class="swiper mySwiper container">
     <div class="swiper-wrapper content">
       <div th:each="activity : ${allActivities}" class="swiper-slide card">
