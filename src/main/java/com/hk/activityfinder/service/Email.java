@@ -2,6 +2,7 @@ package com.hk.activityfinder.service;
 
 import com.hk.activityfinder.interfaces.MailService;
 import com.hk.activityfinder.utility.BackgroundThread;
+import com.hk.settings.Constant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -27,19 +28,21 @@ public class Email implements MailService {
 
     @Override
     public void sendMail(String topic, String content) {
-        BackgroundThread.EMAIL_EXECUTOR.execute(() -> {
-            try {
-                setProperties();
-                setFrom();
-                message.addRecipient(Message.RecipientType.TO, new InternetAddress("hassan_99@live.dk"));
-                message.setSubject(topic);
-                message.setContent(content, "text/html");
-                Transport.send(message);
-                logger.info("Email was sent with the topic " + topic);
-            } catch (MessagingException e) {
-                logger.error("ERROR! Mail was not sent.", e);
-            }
-        });
+        if (!Constant.DEBUG) {
+            BackgroundThread.EMAIL_EXECUTOR.execute(() -> {
+                try {
+                    setProperties();
+                    setFrom();
+                    message.addRecipient(Message.RecipientType.TO, new InternetAddress("hassan_99@live.dk"));
+                    message.setSubject(topic);
+                    message.setContent(content, "text/html");
+                    Transport.send(message);
+                    logger.info("Email was sent with the topic " + topic);
+                } catch (MessagingException e) {
+                    logger.error("ERROR! Mail was not sent.", e);
+                }
+            });
+        }
     }
 
     private void setProperties() {
