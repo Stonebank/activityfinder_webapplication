@@ -35,7 +35,6 @@ public class ActivityController {
     @GetMapping("/get-started")
     public String showGetStarted(Model model, @ModelAttribute("user") UserLocation userlocation) {
         userlocation.setCoordinate(new Coordinate(lat, lon));
-        userlocation.fetchWeatherData();
         userlocation.parseWeatherData();
         model.addAttribute(userlocation);
         model.addAttribute("allActivities", activityService.getAllActivities());
