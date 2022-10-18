@@ -23,6 +23,8 @@ public class Activity {
 
     private int[] ratings;
 
+    private boolean isFavorite;
+
     public String getDistance() {
         return String.format("%s km", Math.round(Double.parseDouble(this.distance)));
     }

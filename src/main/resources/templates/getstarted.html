@@ -37,8 +37,9 @@
           <div class="rating">
             <i th:each="star : ${activity.getRatings()}" class="fas fa-star"></i>
           </div>
-          <div class="like">
-            <i class="fa-regular fa-heart"></i>
+          <div class="like" th:switch="${activity.isFavorite()}">
+            <i class="fa-regular fa-heart" th:case="false"></i>
+            <i class="fa-solid fa-heart" th:case="true"></i>
           </div>
           <div class="button">
             <button class="send-coords">Send to Google Maps</button>

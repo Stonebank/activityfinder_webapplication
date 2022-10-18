@@ -41,6 +41,8 @@ public class ActivityLoader {
                 activity.setImage_path(image_path);
                 activity.setDistance("0");
                 activity.setRatings(new int[((int) (Math.random() * (5 - 1) + 1))]);
+                activity.setFavorite(((int) (Math.random() * 2) == 1));
+                System.out.println(activity.isFavorite());
                 activity.setCoordinate(new Coordinate(latitude, longitude));
                 activity.setWeatherTypes(new WeatherType[] { bestWeather, worstWeather });
 
