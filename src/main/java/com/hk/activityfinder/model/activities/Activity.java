@@ -1,6 +1,5 @@
 package com.hk.activityfinder.model.activities;
 
-import com.hk.activityfinder.model.location.UserLocation;
 import com.hk.activityfinder.model.location.coordinate.Coordinate;
 import com.hk.activityfinder.model.location.weather.WeatherType;
 import lombok.Getter;

@@ -2,7 +2,6 @@ package com.hk.activityfinder.utility.loader;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.hk.activityfinder.Launch;
 import com.hk.activityfinder.model.activities.Activity;
 import com.hk.activityfinder.model.location.coordinate.Coordinate;
 import com.hk.activityfinder.model.location.weather.WeatherType;

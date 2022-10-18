@@ -1,6 +1,5 @@
 package com.hk.activityfinder.model.location;
 
-import com.hk.activityfinder.model.activities.Activity;
 import com.hk.activityfinder.model.location.coordinate.Coordinate;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,6 +1,5 @@
 package com.hk.activityfinder.utility;
 
-import com.google.common.base.Stopwatch;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.hk.activityfinder.model.activities.Activity;
@@ -11,9 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 public class JSONConverter {
 

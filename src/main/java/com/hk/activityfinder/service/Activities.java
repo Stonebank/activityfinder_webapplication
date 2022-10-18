@@ -5,7 +5,6 @@ import com.hk.activityfinder.model.activities.Activity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class Activities implements ActivityService {

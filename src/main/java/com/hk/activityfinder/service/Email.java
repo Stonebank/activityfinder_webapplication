@@ -10,7 +10,6 @@ import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
-import java.util.concurrent.*;
 
 @Service
 public class Email implements MailService {
