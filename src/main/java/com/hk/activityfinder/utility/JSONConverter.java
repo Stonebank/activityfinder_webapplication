@@ -47,7 +47,7 @@ public class JSONConverter {
         Scanner scanner = new Scanner(file);
         while (scanner.hasNext()) {
 
-            String[] splitter = scanner.nextLine().replaceAll(" ", "").split("-");
+            String[] splitter = scanner.nextLine().split("-");
 
             String name = splitter[0];
             String city = splitter[1];
