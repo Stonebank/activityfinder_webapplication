@@ -1,5 +1,6 @@
 package com.hk.activityfinder.model.location;
 
+import com.hk.activityfinder.model.activities.Activity;
 import com.hk.activityfinder.model.location.coordinate.Coordinate;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,4 +28,10 @@ public class UserLocation {
         return earth_radius * c;
     }
 
+    @Override
+    public String toString() {
+        return "UserLocation{" +
+                "coordinate=" + coordinate.getLatitude() + " " + coordinate.getLongitude() +
+                '}';
+    }
 }

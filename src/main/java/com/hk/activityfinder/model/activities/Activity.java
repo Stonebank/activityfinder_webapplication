@@ -1,5 +1,6 @@
 package com.hk.activityfinder.model.activities;
 
+import com.hk.activityfinder.model.location.UserLocation;
 import com.hk.activityfinder.model.location.coordinate.Coordinate;
 import com.hk.activityfinder.model.location.weather.WeatherType;
 import lombok.Getter;
@@ -12,17 +13,12 @@ import java.util.Arrays;
 public class Activity {
 
     public static final ArrayList<Activity> activities = new ArrayList<>();
-
     private String name;
     private String city;
     private String image_path;
-
     private int points;
-
     private double distance;
-
     private Coordinate coordinate;
-
     private WeatherType[] weatherTypes;
 
     @Override

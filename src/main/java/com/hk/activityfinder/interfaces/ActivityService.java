@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface ActivityService {
-
     ArrayList<Activity> getAllActivities();
 
 }
