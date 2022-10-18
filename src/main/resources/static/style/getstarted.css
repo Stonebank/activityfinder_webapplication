@@ -12,6 +12,67 @@ body {
     justify-content: center;
 }
 
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+section .navbar {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    position: relative;
+    max-width: 20px;
+}
+
+header ul {
+    position: relative;
+    display: flex;
+}
+
+header ul li {
+    list-style: none;
+}
+
+header ul li a {
+    display: inline-block;
+    color: #333;
+    font-weight: bolder;
+    margin-left: 40px;
+    text-decoration: none;
+}
+
+header ul li a {
+    color: black;
+    transition: 0.5s ease;
+}
+
+header ul li a:hover {
+    color: #CEDDC8;
+    transition: 0.5s ease;
+}
+
 .swiper {
     width: 950px;
 }
