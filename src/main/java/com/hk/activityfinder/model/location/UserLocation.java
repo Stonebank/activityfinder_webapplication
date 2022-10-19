@@ -87,13 +87,14 @@ public class UserLocation {
 
     @Override
     public String toString() {
-        int randomizer = (int) (Math.random() * 2);
+        int randomizer = (int) (Math.random() * 3);
         String message;
         if (coordinate.getLongitude() == 0 && coordinate.getLongitude() == 0)
             randomizer = -1;
         switch (randomizer) {
-            case 0 -> message = String.format("Weather currently feels like %s°C", Math.round(feels_like.doubleValue()));
-            case 1 -> message = String.format("The weather will reach a highest temperature of %s°C and lowest of %s°C ", Math.round(maximum_temperature.doubleValue()), Math.round(minimum_temperature.doubleValue()));
+            case 0 -> message = String.format("It currently feels like %s°C outside", Math.floor((feels_like.doubleValue())));
+            case 1 -> message = String.format("The weather will reach a highest temperature of %s°C", Math.floor(maximum_temperature.doubleValue()));
+            case 2 -> message = String.format("Today will reach a minimum temperature of %s°C", Math.floor(minimum_temperature.doubleValue()));
             default -> message = "Error: Weather data and location is inaccurate. Please reload page and make sure you have given location access.";
         }
         return message;
