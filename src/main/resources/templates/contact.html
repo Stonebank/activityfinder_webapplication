@@ -5,6 +5,7 @@
     <link rel="stylesheet" th:href="@{/style/contact.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/png" th:href="@{/image/hk-logo.png}">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
     <title>Activity finder by Hassan K</title>
 </head>
 
@@ -41,6 +42,18 @@
         </div>
     </section>
 </section>
+<script>
+    navigator.geolocation.getCurrentPosition(pos => {
+        const coords = pos.coords.latitude + " " + pos.coords.longitude;
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "/get-started/",
+            data: coords,
+            timeout: 100000
+        })
+    });
+</script>
 </body>
 <script type="text/javascript" th:src="@{/js/contact-form-clear.js}"></script>
 </html>
