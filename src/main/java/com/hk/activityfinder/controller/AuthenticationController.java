@@ -15,6 +15,12 @@ public class AuthenticationController {
 
     @Autowired
     private MemberHandler memberHandler;
+    @GetMapping("/login")
+    public String showLoginPage() {
+        return "login";
+    }
+
+
 
     @GetMapping("/register")
     public String showRegisterPage(@ModelAttribute("member") Member member, Model model) {
