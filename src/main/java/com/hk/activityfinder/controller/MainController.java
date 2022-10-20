@@ -21,11 +21,6 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/login")
-    public String showLoginPage() {
-        return "login";
-    }
-
     @GetMapping("/contact")
     public String showForm(Model model) {
         User user = new User();
