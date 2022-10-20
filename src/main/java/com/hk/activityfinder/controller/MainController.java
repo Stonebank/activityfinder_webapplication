@@ -1,5 +1,6 @@
 package com.hk.activityfinder.controller;
 
+import com.hk.activityfinder.dto.Member;
 import com.hk.activityfinder.model.contact.User;
 import com.hk.activityfinder.service.Email;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +24,6 @@ public class MainController {
     @GetMapping("/login")
     public String showLoginPage() {
         return "login";
-    }
-
-    @GetMapping("/register")
-    public String showRegisterPage() {
-        return "register";
     }
 
     @GetMapping("/contact")
