@@ -25,6 +25,11 @@ public class MainController {
         return "login";
     }
 
+    @GetMapping("/register")
+    public String showRegisterPage() {
+        return "register";
+    }
+
     @GetMapping("/contact")
     public String showForm(Model model) {
         User user = new User();

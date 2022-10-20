@@ -22,7 +22,7 @@ body {
 .center h1 {
     text-align: center;
     padding: 0 0 20px 0;
-    border-bottom: 1px;
+    border-bottom: 1px soild silver;
 }
 
 .center form {
@@ -32,7 +32,7 @@ body {
 
 form .txt_field {
     position: relative;
-    border-bottom: 2px;
+    border-bottom: 2px soild #adadad;
     margin: 30px 0;
 }
 
@@ -82,6 +82,11 @@ form .txt_field {
     width: 100%;
 }
 
+.gender input:focus ~ label {
+    font-weight: bolder;
+    color: #CEDDC8;
+}
+
 .pass {
     margin: -5px 0 20px 5px;
     color: #adadad; 
@@ -120,3 +125,41 @@ input[type="submit"]:hover {
     color: #2691d9;
     text-decoration: none;
 }
+
+.has-account {
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+}
+
+.has-account a {
+    color: #2691d9;
+    text-decoration: none;
+}
+
+.gender {
+    margin: 20px 0;
+    text-align: center;
+    outline: none;
+    background: none;
+    color: #adadad;
+}
+
+.gender button {
+    background: none;
+    color: #adadad;
+    font-size: 16px;
+    border: none;
+    display: inline-block;
+    border-radius: 20px;
+}
+
+.gender button:hover {
+    cursor: pointer;
+    color: #CEDDC8;
+    font-weight: 850;
+    transition: .3s;
+}
+
+
