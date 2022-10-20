@@ -13,29 +13,34 @@
 
 <div class="center">
     <h1>Create an account</h1>
-    <form method="post">
+    <form th:action="@{/register/save}" th:object="${member}" method="post">
         <div class="txt_field">
-            <input type="text" required>
+            <input type="text" id="fullname" th:field="*{name}" required>
+            <p th:errors="*{name}" th:if="${#fields.hasErrors('name')}" class="text-danger"></p>
             <span></span>
             <label>Full name</label>
         </div>
         <div class="txt_field">
-            <input type="text" required>
+            <input type="email" id="email" th:field="*{email}" required>
+            <p th:errors="*{email}" th:if="${#fields.hasErrors('email')}" class="text-danger"></p>
             <span></span>
             <label>E-mail</label>
         </div>
         <div class="txt_field">
-            <input type="text" required>
+            <input type="email" id="repeat-email" th:field="*{repeat_email}" required>
+            <p th:errors="*{repeat_email}" th:if="${#fields.hasErrors('repeat_email')}" class="text-danger"></p>
             <span></span>
             <label>Repeat e-mail</label>
         </div>
         <div class="txt_field">
-            <input type="password" required>
+            <input type="password" id="password" th:field="*{password}" required>
+            <p th:errors="*{password}" th:if="${#fields.hasErrors('password')}" class="text-danger"></p>
             <span></span>
             <label>Password</label>
         </div>
         <div class="txt_field">
-            <input type="password" required>
+            <input type="password" id="repeat-password" th:field="*{repeat_password}" required>
+            <p th:errors="*{repeat_password}" th:if="${#fields.hasErrors('repeat_password')}" class="text-danger"></p>
             <span></span>
             <label>Repeat password</label>
         </div>
@@ -45,7 +50,7 @@
         <input type="submit" value="Let's get started!">
         <div class="has-account">
             Already have an account?
-            <a href="#">Log in</a>
+            <a th:href="@{/login}">Log in</a>
         </div>
     </form>
 </div>
