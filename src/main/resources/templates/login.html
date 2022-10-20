@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/style/login.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" th:href="@{/image/hk-logo.png}">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <title>Activity finder by Hassan K</title>
+</head>
+
+
+<body>
+    
+    <div class="center">
+        <h1>Log ind for at booke en tid</h1>
+        <form method="post">
+            <div class="txt_field">
+                <input type="text" required>
+                <span></span>
+                <label>E-mail</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" required>
+                <span></span>
+                <label>Kodeord</label>
+            </div>
+            <div class="pass">
+                Har du glemt dit kodeord?
+            </div>
+            <input type="submit" value="Login">
+            <div class="signup">
+                Har du ikke en konto?
+                <a href="#">Register dig her.</a>
+            </div>
+            <div class="login_hairdresser">
+                Er du frisør?
+                <a href="#">Log ind her.</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
