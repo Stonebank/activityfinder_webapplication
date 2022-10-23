@@ -48,7 +48,7 @@
             <i class="fa-solid fa-heart" th:case="true"></i>
           </div>
           <div class="button">
-            <button class="send-coords">Send to Google Maps</button>
+            <button class="send-coords" id="coordbutton"><a th:href="${activity.getLink()}">Send to Google Maps</a></button>
           </div>
         </div>
       </div>
