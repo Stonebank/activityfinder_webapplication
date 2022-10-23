@@ -30,7 +30,7 @@
             <h1 class="greeting" th:if="${session.member != null}" th:text="|Welcome ${session.member.getName()}!|"></h1>
             <h2>It has never been easier to find<span> something to do</span></h2>
             <p>With just a tap, it will show you nearby activities like sightseeing, exploring and experiencing.</p>
-            <a th:href="@{/homepage}">Get started!</a>
+            <a th:href="@{/discover}">Get started!</a>
         </div>
         <div class="imgBox">
             <img class="activity-image" th:src="@{/image/landingpage/image1.png}" alt="activityimage">
