@@ -23,6 +23,7 @@
         <a th:href="@{/login}">Login</a>
         <a th:href="@{/register}">Register</a>
       </li>
+      <li><a th:unless="${session.member == null}" th:href="@{/logout}">Log out</a></li>
     </ul>
   </header>
 <section>
