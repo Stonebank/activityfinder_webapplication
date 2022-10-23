@@ -18,7 +18,7 @@
             <li><a th:href="@{/homepage}">Home</a></li>
             <li><a th:href="@{/discover}">Discover</a></li>
             <li><a th:href="@{/contact}">Contact</a></li>
-            <li class="login">
+            <li th:if="${session.member == null}" class="login">
                 <a th:href="@{/login}">Login</a>
                 <a th:href="@{/register}">Register</a>
             </li>
@@ -39,8 +39,7 @@
         <div class="profile-picture">
             <img th:src="@{/image/contact/placeholder.jpg}" alt="profile-picture" src="">
             <ul class="social-media">
-                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
                 <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
             </ul>
         </div>

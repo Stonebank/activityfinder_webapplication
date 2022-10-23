@@ -14,14 +14,14 @@
     
     <div class="center">
         <h1>Welcome!</h1>
-        <form method="post">
+        <form method="post" th:action="@{/login}">
             <div class="txt_field">
-                <input type="text" required>
+                <input name="email" id="email" type="text" required>
                 <span></span>
                 <label>E-mail</label>
             </div>
             <div class="txt_field">
-                <input type="password" required>
+                <input name="password" id="password" type="password" required>
                 <span></span>
                 <label>Password</label>
             </div>
@@ -37,6 +37,7 @@
             </div>
         </form>
     </div>
+
 
 </body>
 
