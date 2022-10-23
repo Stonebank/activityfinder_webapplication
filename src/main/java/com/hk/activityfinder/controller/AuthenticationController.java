@@ -2,6 +2,7 @@ package com.hk.activityfinder.controller;
 
 import com.hk.activityfinder.dto.Member;
 import com.hk.activityfinder.service.MemberHandler;
+import com.hk.activityfinder.utility.AES256;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,7 +32,7 @@ public class AuthenticationController {
             }
             var password = (String) result.getFieldValue("password");
             if (password != null) {
-                if (!member.getPassword().equalsIgnoreCase(password)) {
+                if (!password.equalsIgnoreCase(AES256.decrypt(member.getPassword()))) {
                     result.rejectValue("password", "500", "Password is not correct");
                     return "/login";
                 }
