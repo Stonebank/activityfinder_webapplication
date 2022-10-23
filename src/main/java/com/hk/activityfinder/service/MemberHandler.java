@@ -6,6 +6,7 @@ import com.hk.activityfinder.dto.Member;
 import com.hk.activityfinder.interfaces.MemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -19,6 +20,9 @@ import java.nio.file.Paths;
 public class MemberHandler implements MemberService {
 
     private final Logger logger = LoggerFactory.getLogger(MemberHandler.class);
+
+    @Autowired
+    private Email email;
 
     @Override
     public Member load(long id) {
@@ -53,6 +57,12 @@ public class MemberHandler implements MemberService {
             logger.error("ERROR! Could not save user with id " + member.getId() + ".");
         }
 
+    }
+
+    @Override
+    public void createVerificationEmail(Member member, String token) {
+        String link = "http://localhost:8080/register/confirmation?token=" + token;
+        email.sendMail("Confirm your registration", "Hello " + member.getName() + "!<br><br>Thank you for registering. Click the link below to complete your registration<br>" + link);
     }
 
 }

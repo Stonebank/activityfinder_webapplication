@@ -26,6 +26,9 @@ public class Member {
     private String password;
     private String repeat_password;
 
+    @Expose
+    private boolean confirmed_account;
+
     @Override
     public String toString() {
         return "Member{" +

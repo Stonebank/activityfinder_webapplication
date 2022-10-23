@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 
@@ -17,6 +18,17 @@ public class RegisterController {
 
     @Autowired
     private MemberHandler memberHandler;
+
+    @GetMapping("/register/confirmation")
+    public String confirmRegistration(@RequestParam("token") String token) {
+        Member member = memberHandler.load(Long.parseLong(token));
+        if (member == null)
+            return "redirect:/error-500";
+        if (member.getId() != Long.parseLong(token))
+            return "redirect:/error-500";
+        member.setConfirmed_account(true);
+        return "confirmation";
+    }
 
     @PostMapping("/register/create-account")
     public String register(@ModelAttribute("member") Member member, BindingResult result) {
@@ -33,7 +45,8 @@ public class RegisterController {
             return "/register";
         }
         memberHandler.saveUser(member);
-        return "redirect:/register?success";
+        memberHandler.createVerificationEmail(member, String.valueOf(member.getId()));
+        return "confirmation_sent";
     }
 
     @GetMapping("/register")
