@@ -38,7 +38,7 @@ public class AuthenticationController {
             }
         }
         Cookie cookie = new Cookie("uuid", String.valueOf(member.getId()));
-        cookie.setMaxAge(3600);
+        cookie.setMaxAge(Integer.MAX_VALUE);
         response.addCookie(cookie);
         model.addAttribute("member", member);
         session.setAttribute("member", member);
@@ -55,7 +55,8 @@ public class AuthenticationController {
     }
 
     @GetMapping("/login")
-    public String showLoginPage(HttpSession session) {
+    public String showLoginPage(HttpSession session, @ModelAttribute("member") Member member, Model model) {
+        model.addAttribute("member", member);
         return session.getAttribute("member") != null ? "error-404" : "login";
     }
 

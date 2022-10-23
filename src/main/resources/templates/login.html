@@ -14,7 +14,7 @@
     
     <div class="center">
         <h1>Welcome!</h1>
-        <form method="post" th:action="@{/login}">
+        <form method="post" th:action="@{/login}" th:object="${member}">
             <div class="txt_field">
                 <input name="email" id="email" type="text" required>
                 <span></span>
@@ -25,6 +25,8 @@
                 <span></span>
                 <label>Password</label>
             </div>
+            <p th:errors="*{email}" th:if="${#fields.hasErrors('email')}" class="text-danger"></p>
+            <p th:errors="*{password}" th:if="${#fields.hasErrors('password')}" class="text-danger"></p>
             <div class="pass">
                 Forgot your password?
             </div>
