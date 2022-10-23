@@ -37,6 +37,7 @@ public class ActivityLoader {
 
                 activity.setName(name);
                 activity.setCity(city);
+                activity.setLink("https://maps.google.com/?q=" + latitude + "," + longitude);
                 activity.setImage_path(image_path);
                 activity.setDistance("0");
                 activity.setRatings(new int[((int) (Math.random() * (5 - 1) + 1))]);

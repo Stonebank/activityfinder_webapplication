@@ -14,6 +14,8 @@ public class Activity {
     public static final ArrayList<Activity> activities = new ArrayList<>();
     private String name;
     private String city;
+
+    private String link;
     private String image_path;
     private int points;
     private String distance;
