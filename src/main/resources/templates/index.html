@@ -18,7 +18,7 @@
             <li><a th:href="@{/homepage}">Home</a></li>
             <li><a th:href="@{/discover}">Discover</a></li>
             <li><a th:href="@{/contact}">Contact</a></li>
-            <li class="login">
+            <li th:if="${session.member == null}" class="login">
                 <a th:href="@{/login}">Login</a>
                 <a th:href="@{/register}">Register</a>
             </li>
@@ -26,6 +26,7 @@
     </header>
     <div class="content">
         <div class="textBox">
+            <h1 class="greeting" th:if="${session.member != null}" th:text="|Hello, ${session.member.getName()}. Ready to discover new activities?|"></h1>
             <h2>It has never been easier to find<span> something to do</span></h2>
             <p>With just a tap, it will show you nearby activities like sightseeing, exploring and experiencing.</p>
             <a th:href="@{/homepage}">Get started!</a>
@@ -35,8 +36,7 @@
         </div>
     </div>
     <ul class="social-media">
-        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
         <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
     </ul>
 </section>
