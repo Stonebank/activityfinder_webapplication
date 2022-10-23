@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class RegisterController {
 
@@ -35,9 +37,9 @@ public class RegisterController {
     }
 
     @GetMapping("/register")
-    public String showRegisterPage(@ModelAttribute("member") Member member, Model model) {
+    public String showRegisterPage(@ModelAttribute("member") Member member, HttpSession session, Model model) {
         model.addAttribute("member", member);
-        return "register";
+        return session.getAttribute("member") != null ? "error-404" : "register";
     }
 
 }

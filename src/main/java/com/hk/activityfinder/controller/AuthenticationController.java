@@ -47,8 +47,8 @@ public class AuthenticationController {
     }
 
     @GetMapping("/login")
-    public String showLoginPage() {
-        return "login";
+    public String showLoginPage(HttpSession session) {
+        return session.getAttribute("member") != null ? "error-404" : "login";
     }
 
 }
