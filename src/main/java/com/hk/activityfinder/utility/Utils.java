@@ -5,9 +5,7 @@ import java.util.UUID;
 public class Utils {
 
     public static int generateUniqueID() {
-        var uuid = UUID.randomUUID();
-        var uid = uuid.hashCode();
-        return Integer.parseInt(String.valueOf(uid).replaceAll("-", ""));
+        return Integer.parseInt(String.valueOf(UUID.randomUUID().hashCode()).replaceAll("-", ""));
     }
 
 }
