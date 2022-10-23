@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class ActivityController {
 
@@ -33,7 +36,9 @@ public class ActivityController {
     }
 
     @GetMapping("/discover")
-    public String showGetStarted(Model model, @ModelAttribute("user") UserLocation userlocation) {
+    public String showGetStarted(HttpSession session, Model model, @ModelAttribute("user") UserLocation userlocation) {
+        if (session.getAttribute("member") == null)
+            return "/login";
         userlocation.setCoordinate(new Coordinate(lat, lon));
         userlocation.parseWeatherData();
         model.addAttribute(userlocation);
