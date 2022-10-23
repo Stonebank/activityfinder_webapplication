@@ -42,14 +42,14 @@ public class PageErrorController implements ErrorController {
         var status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
         if (status != null) {
             var responseCode = Integer.parseInt(status.toString());
-            email.sendMail("A user found a " + responseCode + " page", "placeholder_text");
+            email.sendMail("hassan_99@live.dk", "User encountered error with response code " + responseCode, "Error " + responseCode);
             logger.error("ERROR! A user went too far - response code: " + responseCode + " " + getClientIP());
             if (responseCode == HttpStatus.NOT_FOUND.value())
                 return "error-404";
             if (responseCode == HttpStatus.INTERNAL_SERVER_ERROR.value())
                 return "error-500";
         }
-        email.sendMail("A user went too far: Response code not given", "placeholder_text");
+        email.sendMail("hassan_99@live.dk", "User encountered error! Unknown response code", "Error: " + request.getServletPath() + " " + getClientIP());
         logger.error("Error detected - normal request: /error");
         return "error";
     }

@@ -62,7 +62,7 @@ public class MemberHandler implements MemberService {
     @Override
     public void createVerificationEmail(Member member, String token) {
         String link = "http://localhost:8080/register/confirmation?token=" + token;
-        email.sendMail("Confirm your registration", "Hello " + member.getName() + "!<br><br>Thank you for registering. Click the link below to complete your registration<br>" + link);
+        email.sendMail(member.getEmail(), "Confirm your registration", "Hello " + member.getName() + "!<br><br>Thank you for registering. Click the link below to complete your registration<br>" + link);
     }
 
 }

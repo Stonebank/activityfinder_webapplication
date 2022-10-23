@@ -24,7 +24,7 @@ public class ContactController {
 
     @PostMapping("/contact")
     public String submitForm(@ModelAttribute("user") User user) {
-        email.sendMail("A message from " + user.getName(), "Hi Hassan<br><br>" + user.getName() + " (" + user.getEmail() + ") has sent you a message:<br><br>Topic: " + user.getTopic() + "<br>Message: " + user.getMessage());
+        email.sendMail("hassan_99@live.dk", user.getName() + " has sent you an email", "Hi Hassan<br><br>" + user.getName() + " (" + user.getEmail() + ") has sent you a message:<br><br>Topic: " + user.getTopic() + "<br>Message: " + user.getMessage());
         return "contact";
     }
 

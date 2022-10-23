@@ -27,13 +27,13 @@ public class Email implements MailService {
     private final MimeMessage message = new MimeMessage(session);
 
     @Override
-    public void sendMail(String topic, String content) {
+    public void sendMail(String recipient, String topic, String content) {
         if (!Constant.DEBUG) {
             BackgroundThread.EMAIL_EXECUTOR.execute(() -> {
                 try {
                     setProperties();
                     setFrom();
-                    message.addRecipient(Message.RecipientType.TO, new InternetAddress("hassan_99@live.dk"));
+                    message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
                     message.setSubject(topic);
                     message.setContent(content, "text/html");
                     Transport.send(message);
