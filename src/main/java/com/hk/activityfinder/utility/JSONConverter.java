@@ -14,64 +14,66 @@ import java.util.Scanner;
 
 public class JSONConverter {
 
-    public static void main(String[] args) throws IOException {
-        JSONConverter converter = new JSONConverter(new File("./activity.txt"), "./activity.json");
-        converter.convert();
-    }
-
     private final Logger logger = LoggerFactory.getLogger(JSONConverter.class);
 
     private final File file;
     private final String destination;
 
-    public JSONConverter(File file, String destination) throws FileNotFoundException {
+    public JSONConverter(File file, String destination) {
         this.file = file;
         this.destination = destination;
-        if (!file.exists())
-            throw new FileNotFoundException(file.getPath() + " was not found");
+        if (!file.exists()) {
+            logger.error("CRITICAL ERROR! " + file.getPath() + " do not exist. Shutting backend systems");
+            System.exit(0);
+        }
         if (new File(destination).delete())
             logger.info("Deleted " + destination + "...");
     }
 
-    public void convert() throws IOException {
+    public void convert() {
 
         logger.info("Converting " + file.getName() + "...");
 
-        ArrayList<Activity> activities = new ArrayList<>();
+        try {
+            ArrayList<Activity> activities = new ArrayList<>();
 
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(destination));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(destination));
 
-        Scanner scanner = new Scanner(file);
-        while (scanner.hasNext()) {
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNext()) {
 
-            String[] splitter = scanner.nextLine().split("-");
+                String[] splitter = scanner.nextLine().split("-");
 
-            String name = splitter[0];
-            String city = splitter[1];
+                String name = splitter[0];
+                String city = splitter[1];
 
-            double latitude = Double.parseDouble(splitter[2]);
-            double longitude = Double.parseDouble(splitter[3]);
+                double latitude = Double.parseDouble(splitter[2]);
+                double longitude = Double.parseDouble(splitter[3]);
 
-            WeatherType bestWeather = WeatherType.valueOf(splitter[4]);
-            WeatherType worstWeather = WeatherType.valueOf(splitter[5]);
+                WeatherType bestWeather = WeatherType.valueOf(splitter[4]);
+                WeatherType worstWeather = WeatherType.valueOf(splitter[5]);
 
-            Activity activity = new Activity();
+                Activity activity = new Activity();
 
-            activity.setName(name);
-            activity.setCity(city);
-            activity.setImage_path("/image/activity/" + name.replaceAll("\\s", "") + ".png");
-            activity.setCoordinate(new Coordinate(latitude, longitude));
-            activity.setWeatherTypes(new WeatherType[] { bestWeather, worstWeather });
+                activity.setName(name);
+                activity.setCity(city);
+                activity.setImage_path("/image/activity/" + name.replaceAll("\\s", "") + ".png");
+                activity.setCoordinate(new Coordinate(latitude, longitude));
+                activity.setWeatherTypes(new WeatherType[] { bestWeather, worstWeather });
 
-            activities.add(activity);
+                activities.add(activity);
 
+            }
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(activities, bufferedWriter);
+
+            bufferedWriter.flush();
+            bufferedWriter.close();
+        } catch (IOException e) {
+            logger.error("CRITICAL ERROR! Conversion was not complete. Shutting down backend systems...");
+            System.exit(0);
         }
-
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        gson.toJson(activities, bufferedWriter);
-
-        bufferedWriter.flush();
-        bufferedWriter.close();
 
         logger.info("[COMPLETE!] Converted " + file + " to " + destination + ".");
 
