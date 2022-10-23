@@ -16,6 +16,11 @@ public class HomeController {
     @Autowired
     private MemberHandler memberHandler;
 
+    @GetMapping("/")
+    public String redirectToHome() {
+        return "redirect:/homepage";
+    }
+
     @GetMapping("/homepage")
     public String showHomePage(HttpSession session, HttpServletRequest request) {
         for (Cookie cookie : request.getCookies()) {
