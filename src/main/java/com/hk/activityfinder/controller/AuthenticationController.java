@@ -40,7 +40,6 @@ public class AuthenticationController {
         Cookie cookie = new Cookie("uuid", String.valueOf(member.getId()));
         cookie.setMaxAge(3600);
         response.addCookie(cookie);
-        System.out.println(cookie.getName() + " " + cookie.getValue());
         model.addAttribute("member", member);
         session.setAttribute("member", member);
         return "/index";
@@ -52,7 +51,7 @@ public class AuthenticationController {
         cookie.setMaxAge(0);
         response.addCookie(cookie);
         session.removeAttribute("member");
-        return "/index";
+        return "redirect:/homepage";
     }
 
     @GetMapping("/login")
