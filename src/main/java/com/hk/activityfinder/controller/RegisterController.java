@@ -2,6 +2,7 @@ package com.hk.activityfinder.controller;
 
 import com.hk.activityfinder.dto.Member;
 import com.hk.activityfinder.service.MemberHandler;
+import org.apache.tomcat.util.net.openssl.ciphers.Encryption;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,6 +45,7 @@ public class RegisterController {
             result.rejectValue("password", "500", "The entered passwords do not match.");
             return "/register";
         }
+        //TODO: Encryption of password
         memberHandler.saveUser(member);
         memberHandler.createVerificationEmail(member, String.valueOf(member.getId()));
         return "confirmation_sent";
