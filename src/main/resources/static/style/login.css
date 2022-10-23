@@ -9,6 +9,10 @@ body {
     overflow: hidden;
 }
 
+p {
+    color: red;
+}
+
 .center {
     position: absolute;
     top: 50%;
