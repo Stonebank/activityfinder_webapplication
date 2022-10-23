@@ -38,7 +38,7 @@ public class ActivityController {
     @GetMapping("/discover")
     public String showGetStarted(HttpSession session, Model model, @ModelAttribute("user") UserLocation userlocation) {
         if (session.getAttribute("member") == null)
-            return "/login";
+            return "redirect:/login";
         userlocation.setCoordinate(new Coordinate(lat, lon));
         userlocation.parseWeatherData();
         model.addAttribute(userlocation);
