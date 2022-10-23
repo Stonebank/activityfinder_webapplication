@@ -25,10 +25,8 @@ public class HomeController {
     public String showHomePage(HttpSession session, HttpServletRequest request) {
         for (Cookie cookie : request.getCookies()) {
             if (cookie.getName().equalsIgnoreCase("uuid")) {
-                System.out.println(cookie.getValue());
                 Member member = memberHandler.load(Long.parseLong(cookie.getValue()));
                 session.setAttribute("member", member);
-                System.out.println(member);
             }
         }
         return "/index";
