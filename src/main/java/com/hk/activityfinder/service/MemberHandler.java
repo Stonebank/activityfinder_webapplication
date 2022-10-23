@@ -21,13 +21,13 @@ public class MemberHandler implements MemberService {
     private final Logger logger = LoggerFactory.getLogger(MemberHandler.class);
 
     @Override
-    public Member load(Member member) {
-        try (Reader reader = Files.newBufferedReader(Paths.get("./data/" + member.getId() + ".json"), StandardCharsets.UTF_8)) {
-            member = new Gson().fromJson(reader, Member.class);
+    public Member load(long id) {
+        try (Reader reader = Files.newBufferedReader(Paths.get("./data/" + id + ".json"), StandardCharsets.UTF_8)) {
+            Member member = new Gson().fromJson(reader, Member.class);
             logger.info("Successfully loaded member: " + member.getId() + ".");
             return member;
         } catch (IOException e) {
-            logger.error("ERROR! Data from " + member.getId() + " was not loaded.");
+            logger.error("ERROR! Data from " + id + " was not loaded.");
             return null;
         }
     }

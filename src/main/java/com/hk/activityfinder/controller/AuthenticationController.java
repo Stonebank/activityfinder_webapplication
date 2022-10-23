@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -19,7 +21,7 @@ public class AuthenticationController {
     private MemberHandler memberHandler;
 
     @PostMapping("/login")
-    public String handleLoginRequest(@ModelAttribute("member") Member member, HttpSession session, BindingResult result, Model model) {
+    public String handleLoginRequest(@ModelAttribute("member") Member member, HttpSession session, BindingResult result, HttpServletResponse response, Model model) {
         var email = (String) result.getFieldValue("email");
         if (email != null) {
             member = memberHandler.load(email);
@@ -35,13 +37,20 @@ public class AuthenticationController {
                 }
             }
         }
+        Cookie cookie = new Cookie("uuid", String.valueOf(member.getId()));
+        cookie.setMaxAge(3600);
+        response.addCookie(cookie);
+        System.out.println(cookie.getName() + " " + cookie.getValue());
         model.addAttribute("member", member);
         session.setAttribute("member", member);
         return "/index";
     }
 
     @GetMapping("/logout")
-    public String logout(HttpSession session) {
+    public String logout(HttpSession session, HttpServletResponse response) {
+        Cookie cookie = new Cookie("uuid", "");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
         session.removeAttribute("member");
         return "/index";
     }

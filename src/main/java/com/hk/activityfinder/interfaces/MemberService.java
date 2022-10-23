@@ -7,6 +7,6 @@ public interface MemberService {
     void saveUser(Member member);
 
     Member load(String email);
-    Member load(Member member);
+    Member load(long id);
 
 }
