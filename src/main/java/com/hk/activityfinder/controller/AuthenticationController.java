@@ -37,7 +37,12 @@ public class AuthenticationController {
         }
         model.addAttribute("member", member);
         session.setAttribute("member", member);
-        System.out.println(session.getAttribute("member"));
+        return "/index";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.removeAttribute("member");
         return "/index";
     }
 

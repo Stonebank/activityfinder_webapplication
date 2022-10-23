@@ -22,11 +22,12 @@
                 <a th:href="@{/login}">Login</a>
                 <a th:href="@{/register}">Register</a>
             </li>
+            <li><a th:unless="${session.member == null}" th:href="@{/logout}">Log out</a></li>
         </ul>
     </header>
     <div class="content">
         <div class="textBox">
-            <h1 class="greeting" th:if="${session.member != null}" th:text="|Hello, ${session.member.getName()}. Ready to discover new activities?|"></h1>
+            <h1 class="greeting" th:if="${session.member != null}" th:text="|Welcome ${session.member.getName()}!|"></h1>
             <h2>It has never been easier to find<span> something to do</span></h2>
             <p>With just a tap, it will show you nearby activities like sightseeing, exploring and experiencing.</p>
             <a th:href="@{/homepage}">Get started!</a>
