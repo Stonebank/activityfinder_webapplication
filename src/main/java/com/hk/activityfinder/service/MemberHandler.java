@@ -14,7 +14,6 @@ import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
 
 @Service
 public class MemberHandler implements MemberService {
@@ -34,9 +33,21 @@ public class MemberHandler implements MemberService {
     }
 
     @Override
+    public Member load(String email) {
+        for (Member member : Member.members) {
+            if (member == null || !member.getEmail().equalsIgnoreCase(email))
+                continue;
+            return member;
+        }
+        return null;
+    }
+
+    @Override
     public void saveUser(Member member) {
         try (Writer writer = Files.newBufferedWriter(Paths.get("./data/" + member.getId() + ".json"), StandardCharsets.UTF_8)) {
-            new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create().toJson(member, writer);
+            new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().disableHtmlEscaping().create().toJson(member, writer);
+            if (!Member.members.contains(member))
+                Member.members.add(member);
             logger.info("Successfully saved user " + member);
         } catch (IOException e) {
             logger.error("ERROR! Could not save user with id " + member.getId() + ".");
