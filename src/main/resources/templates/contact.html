@@ -16,8 +16,12 @@
         <a href="#" class="logo"><img th:src="@{/image/hk-logo.png}" alt="hklogo"></a>
         <ul>
             <li><a th:href="@{/homepage}">Home</a></li>
-            <li><a th:href="@{/get-started}">Discover</a></li>
+            <li><a th:href="@{/discover}">Discover</a></li>
             <li><a th:href="@{/contact}">Contact</a></li>
+            <li class="login">
+                <a th:href="@{/login}">Login</a>
+                <a th:href="@{/register}">Register</a>
+            </li>
         </ul>
     </header>
     <section class="contact-me">
@@ -48,7 +52,7 @@
         $.ajax({
             type: "POST",
             contentType: "application/json",
-            url: "/get-started/",
+            url: "/discover/",
             data: coords,
             timeout: 100000
         })

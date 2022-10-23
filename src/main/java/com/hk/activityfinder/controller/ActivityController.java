@@ -24,21 +24,21 @@ public class ActivityController {
     @Autowired
     private ActivityService activityService;
 
-    @RequestMapping("/get-started")
+    @RequestMapping("/discover")
     public String getCoords(@RequestBody String coords) {
         lat = Double.parseDouble(coords.split(" ")[0]);
         lon = Double.parseDouble(coords.split(" ")[1]);
         logger.info("Javascript coordinates=[" + lat + "," + lon + "]");
-        return "getstarted";
+        return "discover";
     }
 
-    @GetMapping("/get-started")
+    @GetMapping("/discover")
     public String showGetStarted(Model model, @ModelAttribute("user") UserLocation userlocation) {
         userlocation.setCoordinate(new Coordinate(lat, lon));
         userlocation.parseWeatherData();
         model.addAttribute(userlocation);
         model.addAttribute("allActivities", activityService.getAllActivities());
-        return "getstarted";
+        return "discover";
     }
 
 }
