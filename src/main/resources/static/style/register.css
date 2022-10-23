@@ -1,12 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
 
+*{
+    font-family: "Poppins", "Helvetica Neue", "Helvetica", "Arial", serif;
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: "Poppins", "Helvetica Neue", "Helvetica", "Arial";
     background: linear-gradient(120deg, #CEDDC8,  #F6F8F3);
     height: 100vh;
     overflow: hidden;
+}
+
+p {
+    color: red;
 }
 
 .center {
