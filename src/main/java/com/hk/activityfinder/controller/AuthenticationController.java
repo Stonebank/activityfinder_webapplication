@@ -38,7 +38,7 @@ public class AuthenticationController {
             }
         }
         Cookie cookie = new Cookie("uuid", String.valueOf(member.getId()));
-        cookie.setMaxAge(Integer.MAX_VALUE);
+        cookie.setMaxAge(3600);
         response.addCookie(cookie);
         model.addAttribute("member", member);
         session.setAttribute("member", member);
