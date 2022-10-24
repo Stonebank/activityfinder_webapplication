@@ -4,3 +4,17 @@
 
 The goal of this application is to create a stunning easy-to-use frontend website in which the user can find activity suggestions with a fast and effective backend.
 
+# Requirements
+
+* JDK 17
+
+# Run this project
+
+* Clone the project and open as project in your IDE. 
+* Navigate to Constant.java and disable DEBUG to activate the e-mail system
+* Run the project and navigate to localhost:8080
+
+------------------------
+
+### This is a project still in development 
+
