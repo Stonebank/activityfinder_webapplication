@@ -3,6 +3,7 @@ package com.hk.activityfinder.controller;
 import com.hk.activityfinder.dto.Member;
 import com.hk.activityfinder.service.MemberHandler;
 import com.hk.activityfinder.utility.AES256;
+import com.hk.activityfinder.utility.Utils;
 import org.apache.tomcat.util.net.openssl.ciphers.Encryption;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,6 +45,12 @@ public class RegisterController {
         }
         if (!member.getPassword().equalsIgnoreCase(member.getRepeat_password())) {
             result.rejectValue("password", "500", "The entered passwords do not match.");
+            return "/register";
+        }
+        if (!Utils.checkPasswordRequirements(member.getPassword())) {
+            //TODO: Message if password is weak.
+            // Req: 1. digit must occur, lowercase char, uppercase char, special char, no whitespace, 8 char
+            result.rejectValue("password", "500", "Your password is not strong enough.");
             return "/register";
         }
         member.setPassword(AES256.encrypt(member.getPassword()));
