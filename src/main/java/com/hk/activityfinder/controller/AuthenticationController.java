@@ -30,10 +30,14 @@ public class AuthenticationController {
                 result.rejectValue("email", "500", "E-mail address not found");
                 return "/login";
             }
+            if (!email.equalsIgnoreCase(member.getEmail())) {
+                result.rejectValue("email", "500", "Login failed. Invalid e-mail or password");
+                return "/login";
+            }
             var password = (String) result.getFieldValue("password");
             if (password != null) {
                 if (!password.equalsIgnoreCase(AES256.decrypt(member.getPassword()))) {
-                    result.rejectValue("password", "500", "Password is not correct");
+                    result.rejectValue("password", "500", "Login failed. Invalid e-mail or password");
                     return "/login";
                 }
             }
