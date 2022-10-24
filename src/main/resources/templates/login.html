@@ -25,6 +25,19 @@
                 <span></span>
                 <label>Password</label>
             </div>
+            <div class="checkbox">
+                <input type="checkbox" id="show-password" onclick="togglePasswordVisibility()">
+                <label>Show password</label>
+            </div>
+            <script>
+                function togglePasswordVisibility() {
+                    const passfield = document.getElementById("password");
+                    if (passfield.type === "password")
+                        passfield.type = "text";
+                    else
+                        passfield.type = "password";
+                }
+            </script>
             <p th:errors="*{email}" th:if="${#fields.hasErrors('email')}" class="text-danger"></p>
             <p th:errors="*{password}" th:if="${#fields.hasErrors('password')}" class="text-danger"></p>
             <div class="pass">

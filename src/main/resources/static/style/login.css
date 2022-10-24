@@ -29,6 +29,10 @@ p {
     border-bottom: 1px;
 }
 
+.checkbox {
+    padding-bottom: 15px;
+}
+
 .center form {
     padding: 0 40px;
     box-sizing: border-box;
